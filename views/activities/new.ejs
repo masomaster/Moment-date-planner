@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+
+    <h2>Create a New Activity</h2>
+    <form action="/movies" method="POST">
+      <label>Title:
+        <input type="text" name="title">
+      </label><br>
+      <label>Location: 
+        <input type="text" name="location">
+      </label><br>
+      <label>Website: 
+        <input type="url" name="url">
+      </label><br>
+      <label>Vibe: 
+        <select name="vibe">
+            <option value="romantic">Romantic</option>
+            <option value="chill">Chill</option>
+            <option value="hipster">Hipster</option>
+            <option value="energetic">Energetic</option>
+            <option value="adventure">Adventure</option>
+          </select>
+      </label><br>
+      <label>Category:
+        <select name="category">
+            <option value="food">Food</option>
+            <option value="drinks">Drinks</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="outdoors">Outdoors</option>
+            <option value="phys-act">Physical Activity/Exercise</option>
+            <option value="sightseeing">Sightseeing</option>
+        </select>
+      </label><br>
+      <label>Notes: 
+        <textarea name="notes"></textarea>
+      </label><br>
+      <input type="submit" value="Add Movie">
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

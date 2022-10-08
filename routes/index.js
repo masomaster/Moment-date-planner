@@ -4,7 +4,7 @@ const passport = require('passport');
 const isLoggedIn = require('../config/auth');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'San Diego Date Night Planner' });
+  res.render('activities/index', { title: 'San Diego Date Night Planner' });
 });
 
 router.get('/auth/google', passport.authenticate(
