@@ -9,6 +9,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
 .content {
   padding: 15px;
   box-sizing: border-box;

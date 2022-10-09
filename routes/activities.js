@@ -6,6 +6,9 @@ const activitiesCtrl = require('../controllers/activities');
 
 // All routes start with '/activities/'
 router.get('/', activitiesCtrl.index);
-router.get('/new', activitiesCtrl.new);
+router.get('/new', isLoggedIn, activitiesCtrl.new);
+router.post('/', isLoggedIn, activitiesCtrl.create);
+router.get('/:id', activitiesCtrl.show);
+router.get('/:id/edit', isLoggedIn, activitiesCtrl.edit);
 
 module.exports = router;

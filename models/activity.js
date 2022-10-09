@@ -9,8 +9,22 @@ const activitySchema = new Schema({
     location: String,
     url: String,
     vibe: [String],
-    category: [String],
-    notes: [String]
+    category: {
+        type: String,
+        required: true
+    },
+    notes: String,
+    public: {
+        type: Boolean,
+        default: true,
+        required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
+    userName: String,
+    userAvatar: String,
 }, {
     timestamps: true
 })

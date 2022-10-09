@@ -2,16 +2,19 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 const isLoggedIn = require('../config/auth');
+const Activity = require('../models/activity');
 
 router.get('/', function(req, res, next) {
-  res.render('activities/index', { title: 'San Diego Date Night Planner' });
+  Activity.find({}, function(err, activities) {
+    res.render('index', { title: "Overview", activities});  
+  });
 });
 
 router.get('/auth/google', passport.authenticate(
   'google',
   {
     scope: ['profile', 'email'],
-    // prompt: "select_account"
+    prompt: "select_account"
   }
 ));
 

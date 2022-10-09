@@ -1,8 +1,0 @@
-<%- include('../partials/header') %>
-
-<div class="content">
-
-    <p>This is the activities/edit page</p>
-
-</div>
-<%- include('../partials/footer') %>

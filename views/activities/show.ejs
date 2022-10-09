@@ -1,8 +1,40 @@
 <%- include('../partials/header') %>
 
 <div class="content">
-
-    <p>This is the activities/show page</p>
+    <table>
+        <tr>
+            <th>Location:</th>
+            <td><%= activity.location %></td>
+        </tr>
+        <tr>
+            <th><a href = <%= activity.url %>Website</a></th>
+        </tr>
+        <tr>
+            <th>Vibe:</th>
+            <td><%= activity.vibe %></td>
+        </tr>
+        <tr>
+            <th>Category:</th>
+            <td><%= activity.category %></td>
+        </tr>
+        <tr>
+            <th>Notes:</th>
+            <td><%= activity.notes %></td>
+        </tr>
+        <tr>
+            <th>Visible to Others?</th>
+            <td>
+                <% if (activity.public) { %>
+                    Sure is!
+                <% } else { %>
+                    Nope!
+                <% } %>
+            </td>
+        </tr>
+    </table>
+    <% if(user && user._id.equals(activity.user)) { %>
+        <a href = "/activities/<%= activity._id %>/edit">Edit Activity</a>
+    <% } %>
 
 </div>
 <%- include('../partials/footer') %>

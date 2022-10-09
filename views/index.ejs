@@ -1,8 +1,31 @@
 <%- include('./partials/header') %>
 
 <div class="content">
+    <h2>Browse Activities by Category</h2>
+    <div class = "activities-grid">
+        <% activities.forEach(function(a) { %>
+            <% if(a.public || (user && user._id.equals(a.user))) { %> 
+                <div class="activity-block">
+                    <a href= "/activities/<%= a._id %>"><%= a.title %></a>
+                    <%= a.category %>
+                    <% if(a.location) { %>
+                        <%= a.location %>
+                    <% } %>
+                </div>
+            <% } %>
+        <% }) %>
+        
+        <% if(user) { %>
+            <a href = "/activities/new">Add New Activity</a>
+        <% } %>
+    </div>
 
-    <p>Lorum ipsum dolor... </p>
+    <!-- After Date model is set up, add "Your Date Plans" and "Add Date Plan" below, same format. -->
 
+    <h2>
+        <% if (user) { %>
+            <h2>Your Date Night Plans</h2>
+        <% } %>
+    </h2>
 </div>
 <%- include('./partials/footer') %>

@@ -2,8 +2,13 @@
 
 <div class="content">
 
-    <p>This is the activities/index page</p>
-    <a href = "/activities/new">Add New Activity</a>
-
+    <% activities.forEach(function(a) { %>
+        <p><%= a.title %></p>
+    <% }) %>
+    
+    <% if(user) { %>
+        <a href = "/activities/new">Add New Activity</a>
+    <% } %>
 </div>
+
 <%- include('../partials/footer') %>
