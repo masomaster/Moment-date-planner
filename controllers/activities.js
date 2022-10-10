@@ -7,6 +7,7 @@ module.exports = {
     show,
     edit,
     update,
+    delete: deleteActivity,
 }
 
 function index(req, res) {
@@ -57,4 +58,12 @@ function update(req, res) {
             if (err || !activity) return req.redirect('/activities');
             res.redirect(`/activities/${activity._id}`);
     })
+}
+
+function deleteActivity(req, res) {
+    Activity.findOneAndDelete(
+        {_id: req.params.id, user: req.user._id}, function(err) {
+            res.redirect('/activities');
+        }
+    )
 }

@@ -33,6 +33,10 @@ a {
   height: 30px;
 }
 
+th {
+  text-align: left;
+}
+
 footer {
   position: absolute;
   left: 0;
