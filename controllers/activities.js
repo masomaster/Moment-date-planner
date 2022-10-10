@@ -13,7 +13,6 @@ module.exports = {
 function index(req, res) {
     Activity.find({}, function(err, activities) {
         res.render('activities/index', { title: 'Browse All Activities', activities});  
-        console.log('These are the activities: ', activities);
     });
 }
 
@@ -32,6 +31,13 @@ function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     req.body.title = req.body.title.charAt(0).toUpperCase() + req.body.title.slice(1);
+    // Not implementing "this activity already exists" feature for now, since a user might want to add multiple locations (e.g. RakiRaki in Mira Mesa and in Convoy)
+    // Activity.findOne(
+    //     {title: req.body.title}, function(err, activity) {
+    //         if (activity) return res.render('activities/new', { title: 'Create a New Activity', message: "This activity already exists"})
+    // move Activity.create and redirect to here if active
+    //     }
+    //     )
     Activity.create(req.body, function(err, activity) {
     });
     res.redirect('/');
@@ -44,17 +50,12 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    console.log("this reached the controller!")
-    // capitalize and update title, push to req.body
     req.body.title = req.body.title.charAt(0).toUpperCase() + req.body.title.slice(1);
-    // find activity and ensure user id matches actiivity's user id
     Activity.findOneAndUpdate(
         {_id: req.params.id, user: req.user._id},
-        // push req.body material to model
         req.body,
         {new: true},
         function(err, activity) {
-            // res.redirect/render to show page
             if (err || !activity) return req.redirect('/activities');
             res.redirect(`/activities/${activity._id}`);
     })
