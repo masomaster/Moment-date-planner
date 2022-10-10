@@ -2,12 +2,25 @@
 
 <div class="content">
 
-    <p>This is the dates/new page</p>
     <form action="/dateplans" method="POST">
         <label>Title:
           <input type="text" name="title">
         </label><br>
+        <label>Date:
+          <% let defaultDate = new Date() %>
+          <% let dateString = `${defaultDate.getFullYear().toString()}-${(defaultDate.getMonth()+1).toString().padStart(2, '0')}-${defaultDate.getDate().toString().padStart(2, '0')}` %>
+          <input type="date" name="when" value="<%= dateString %>">
+        </label><br>
+        <label>Location:
+          <input type="text" name="location">
+        </label><br>
+        <label>Who's coming?
+          <input type="text" name="people">
+        </label><br>
+        <label>Activities:
+        </label><br>
         <input type="submit" value="Create Date Plan">
     </form>
+
 </div>
 <%- include('../partials/footer') %>

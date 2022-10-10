@@ -6,7 +6,7 @@ const dateSchema = new Schema ({
         type: String,
         required: true
     },
-    when: Date,
+    date: Date,
     location: String,
     people: String,
     activities: [{

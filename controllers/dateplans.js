@@ -1,8 +1,13 @@
 const DatePlan = require('../models/dateplan');
 
 module.exports = {
+    index,
     new: newDate,
     create,
+}
+
+function index(req, res) {
+    res.render('dateplans/index', { title: 'Browse Date Plans'});
 }
 
 function newDate(req, res) {
@@ -14,7 +19,7 @@ function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     DatePlan.create(req.body, function(err, datePlan) {
-        console.log("here is the new date plan", datePlan)
+        console.log("Here is the new date plan", datePlan)
     });    
     res.redirect('/');
 }

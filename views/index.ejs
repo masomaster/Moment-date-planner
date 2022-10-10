@@ -19,17 +19,20 @@
             <a href = "/activities/new">Add New Activity</a>
         <% } %>
     </div>
-
-    <!-- After Date model is set up, add "Your Date Plans" and "Add Date Plan" below, same format. -->
-
     <% if (user) { %>
         <div class = "dates-grid">
             <h2>Your Date Night Plans</h2>
             <% dateplans.forEach(function(d) { %> 
-                <%= d.title %>
+                <div class = "date-block">
+                    <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>                
+                    <% if (d.date) { %>
+                        <%= d.date.toDateString() %>
+                    <% } %>
+                    <%= d.location %>
+                </div>
             <% }) %> 
             <a href = "/dateplans/new">Add New Date Plan</a>
         </div>
-        <% } %>
+    <% } %>
 </div>
 <%- include('./partials/footer') %>
