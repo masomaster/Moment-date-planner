@@ -22,10 +22,14 @@
 
     <!-- After Date model is set up, add "Your Date Plans" and "Add Date Plan" below, same format. -->
 
-    <h2>
-        <% if (user) { %>
+    <% if (user) { %>
+        <div class = "dates-grid">
             <h2>Your Date Night Plans</h2>
+            <% dateplans.forEach(function(d) { %> 
+                <%= d.title %>
+            <% }) %> 
+            <a href = "/dateplans/new">Add New Date Plan</a>
+        </div>
         <% } %>
-    </h2>
 </div>
 <%- include('./partials/footer') %>

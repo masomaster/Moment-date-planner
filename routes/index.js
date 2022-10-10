@@ -3,10 +3,13 @@ var router = express.Router();
 const passport = require('passport');
 const isLoggedIn = require('../config/auth');
 const Activity = require('../models/activity');
+const DatePlan = require('../models/dateplan');
 
 router.get('/', function(req, res, next) {
   Activity.find({}, function(err, activities) {
-    res.render('index', { title: "Home", activities});  
+    DatePlan.find({}, function(err, dateplans) {
+      res.render('index', { title: "Home", activities, dateplans});  
+    })
   });
 });
 

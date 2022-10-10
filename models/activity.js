@@ -21,7 +21,8 @@ const activitySchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        required: true
+        ref: 'User',
+        required: true,
     },
     userName: String,
     userAvatar: String,
