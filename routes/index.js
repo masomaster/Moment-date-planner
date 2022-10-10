@@ -6,7 +6,7 @@ const Activity = require('../models/activity');
 
 router.get('/', function(req, res, next) {
   Activity.find({}, function(err, activities) {
-    res.render('index', { title: "Overview", activities});  
+    res.render('index', { title: "Home", activities});  
   });
 });
 
@@ -14,7 +14,7 @@ router.get('/auth/google', passport.authenticate(
   'google',
   {
     scope: ['profile', 'email'],
-    prompt: "select_account"
+    // prompt: "select_account"
   }
 ));
 

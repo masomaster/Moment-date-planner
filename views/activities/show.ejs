@@ -7,7 +7,12 @@
             <td><%= activity.location %></td>
         </tr>
         <tr>
-            <th><a href = <%= activity.url %>Website</a></th>
+            <th>Website:</th>
+            <% if(activity.url) { %>
+                <td><a href = <%= activity.url %> target="_blank">
+                    <%= activity.title %>
+                </a></td>
+            <% } %>
         </tr>
         <tr>
             <th>Vibe:</th>

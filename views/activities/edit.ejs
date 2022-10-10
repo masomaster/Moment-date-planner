@@ -12,27 +12,32 @@
         <label>Website: 
           <input type="url" name="url" value="<%= activity.url %>">
         </label><br>
-        <label>Vibe: 
+        <label>Vibe:
           <select name="vibe">
-            <option value="Romantic">Romantic</option>
-            <option value="Chill">Chill</option>
-            <option value="Hipster">Hipster</option>
-            <option value="Energetic">Energetic</option>
-            <option value="Adventure">Adventure</option>
+            <% const vibes = ["Romantic", "Chill", "Hipster", "Energetic", "Adventure"] %>
+            <% vibes.forEach(function(v) { %>
+              <% if (activity.vibe === v) { %>
+                <option value="<%= v %>" selected><%= v %></option>
+              <% } else { %>
+                <option value="<%= v %>"><%= v %></option>
+              <% } %>
+            <% }) %>
           </select>
         </label><br>
         <label>Category:
           <select name="category">
-            <option value="Food">Food</option>
-            <option value="Drinks">Drinks</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Outdoors">Outdoors</option>
-            <option value="Physical Activity/Exercise">Physical Activity/Exercise</option>
-            <option value="Sightseeing">Sightseeing</option>
+            <% const categories = ["Food", "Drinks", "Entertainment", "Outdoors", "Physical Activity/Exercise", "Sightseeing"] %>
+            <% categories.forEach(function(c) { %>
+              <% if (activity.category === c) { %>
+                <option value="<%= c %>" selected><%= c %></option>
+              <% } else { %>
+                <option value="<%= c %>"><%= c %></option>
+              <% } %>
+            <% }) %>
           </select>
         </label><br>
         <label>Notes: 
-          <textarea name="notes" value="<%= activity.notes %>"></textarea>
+          <textarea name="notes"><%= activity.notes %></textarea>
         </label><br>
         <p>Visibility:</p>
           <input type="radio" id="public" name="public" value="true" checked=<% activity.public ? 'checked' : '' %>>

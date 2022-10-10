@@ -8,7 +8,7 @@ const activitySchema = new Schema({
     },
     location: String,
     url: String,
-    vibe: [String],
+    vibe: String,
     category: {
         type: String,
         required: true

@@ -10,5 +10,6 @@ router.get('/new', isLoggedIn, activitiesCtrl.new);
 router.post('/', isLoggedIn, activitiesCtrl.create);
 router.get('/:id', activitiesCtrl.show);
 router.get('/:id/edit', isLoggedIn, activitiesCtrl.edit);
+router.put('/:id', isLoggedIn, activitiesCtrl.update);
 
 module.exports = router;
