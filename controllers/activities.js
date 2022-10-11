@@ -18,8 +18,12 @@ function index(req, res) {
 
 function show(req, res) {
     Activity.findById({_id: req.params.id}, function(err, activity) {
-        res.render('activities/show', { title: activity.title, activity });
-    });
+        if ((req.user && activity.user.equals(req.user._id)) || activity.public === true) {
+            res.render('activities/show', { title: activity.title, activity });
+        } else {
+            res.redirect('/')
+        }
+    })
 }
 
 function newActivity(req, res) {

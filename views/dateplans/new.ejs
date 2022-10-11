@@ -9,7 +9,7 @@
         <label>Date:
           <% let defaultDate = new Date() %>
           <% let dateString = `${defaultDate.getFullYear().toString()}-${(defaultDate.getMonth()+1).toString().padStart(2, '0')}-${defaultDate.getDate().toString().padStart(2, '0')}` %>
-          <input type="date" name="when" value="<%= dateString %>">
+          <input type="date" name="date" value="<%= dateString %>">
         </label><br>
         <label>Location:
           <input type="text" name="location">
@@ -18,6 +18,15 @@
           <input type="text" name="people">
         </label><br>
         <label>Activities:
+          <select name="activityId">
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"><%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select>
         </label><br>
         <input type="submit" value="Create Date Plan">
     </form>

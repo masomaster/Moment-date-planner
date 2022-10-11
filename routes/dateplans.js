@@ -6,8 +6,9 @@ const datePlansCtrl = require('../controllers/dateplans');
 
 // All routes prepended with "/dateplans"
 router.get('/', datePlansCtrl.index);
-router.get('/new', datePlansCtrl.new);
+router.get('/new', isLoggedIn, datePlansCtrl.new);
 router.post('/', isLoggedIn, datePlansCtrl.create);
+router.get('/:id', datePlansCtrl.show);
 
 
 module.exports = router;

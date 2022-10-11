@@ -2,7 +2,52 @@
 
 <div class="content">
 
-    <p>This is the dates/show page</p>
-
+    <% if(user && user._id.equals(datePlan.user)) { %>
+    <table>
+        <tr>
+            <th>Date:</th>
+            <% if(datePlan.date) { %>
+                <td><%= datePlan.date.toDateString() %></td>
+            <% } %>
+        </tr>
+        <tr>
+            <th>Location:</th>
+            <td><%= datePlan.location %></td>
+        </tr>
+        <tr>
+            <th>People:</th>
+            <td><%= datePlan.people %></td>
+        </tr>
+        <tr>
+            <th>Activities:</th>
+            <td>
+                <% datePlan.activities.forEach(function(a) { %>
+                    <%= a.activity.title %><br>
+                <% }) %>
+            </td>
+        </tr>
+        <tr>
+            <th>Notes:</th>
+            <td><%= datePlan.notes %></td>
+        </tr>
+        <tr>
+            <th>Visible to Others?</th>
+            <td>
+                <% if (datePlan.public) { %>
+                    Sure is!
+                <% } else { %>
+                    Nope!
+                <% } %>
+            </td>
+        </tr>
+    </table>
+    
+        <form action = "/dateplans/<%= datePlan._id %>/edit">
+            <button type="submit">Edit Date Plan</button>
+        </form>
+        <form action = "/dateplans/<%= datePlan._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Date Plan</button>            
+        </form>
+    <% } %>
 </div>
 <%- include('../partials/footer') %>

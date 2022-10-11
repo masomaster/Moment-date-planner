@@ -41,8 +41,6 @@
         <form action = "/activities/<%= activity._id %>/edit">
             <button type="submit">Edit Activity</button>
         </form>
-    <% } %>
-    <% if(user && user._id.equals(activity.user)) { %>
         <form action = "/activities/<%= activity._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Activity</button>            
         </form>

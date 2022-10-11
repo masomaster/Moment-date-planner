@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const dateActivitySchema = new Schema ({
+    time: String,
+    activity: {
+        type: Schema.Types.ObjectId,
+        ref: 'Activity'
+    }
+}, {
+    timestamps: true
+  })
+
 const dateSchema = new Schema ({
     title: {
         type: String,
@@ -9,10 +19,9 @@ const dateSchema = new Schema ({
     date: Date,
     location: String,
     people: String,
-    activities: [{
-        time: String,
-        activity: Schema.Types.ObjectId
-    }],
+    activities: [dateActivitySchema],
+    notes: String,
+    public: Boolean,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
