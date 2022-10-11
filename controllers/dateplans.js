@@ -6,7 +6,8 @@ module.exports = {
     index,
     new: newDate,
     create,
-    show
+    show,
+    delete: deleteDatePlan,
 }
 
 function index(req, res) {
@@ -25,8 +26,7 @@ function create(req, res) {
     req.body.userAvatar = req.user.avatar;
     req.body.date = new Date (req.body.date+"T09:00:00Z")
 
-    // refactor activities and time into object fitting dateActivitySchema
-    // req.body.activities = [{activity: req.body.activityId, time: req.body.activityTime}];
+    // Re-shape activities and time arguments into objects fitting dateActivitySchema
     req.body.activities = [];
     let allActivityIds = [req.body.activityId1, req.body.activityId2, req.body.activityId3, req.body.activityId4, req.body.activityId5, req.body.activityId6];
     let allActivityTimes = [req.body.activityTime1, req.body.activityTime2, req.body.activityTime3, req.body.activityTime4, req.body.activityTime5, req.body.activityTime6];
@@ -56,5 +56,14 @@ function show(req, res) {
         } else {
             res.redirect('/')
         }
+    })
+}
+
+function deleteDatePlan(req, res) {
+    DatePlan.findByIdAndDelete(req.params.id, function(err) {
+        if (err) {
+            console.log(err)
+        }
+        res.redirect('/')
     })
 }
