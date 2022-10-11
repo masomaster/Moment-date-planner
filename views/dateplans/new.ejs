@@ -17,16 +17,22 @@
         <label>Who's coming?
           <input type="text" name="people">
         </label><br>
-        <label>Activities:
-          <select name="activityId">
-            <% activities.forEach(function(a) { %>
-              <option value="<%= a._id %>"><%= a.title %>
-              <% if(a.location) { %>
-                – <%= a.location %>
-              <% } %>
-              </option>
-            <% }) %>
-          </select>
+        <label>Add activities to date (you can leave entries blank):
+          <div class="activities-list">
+            <% for(let i=1; i < 7; i++) { %>
+              <%- `Activity #${i}` %>
+              <%- `<select name="activityId${i}">` %>
+                <option></option>
+                <% activities.forEach(function(a) { %>
+                  <option value="<%= a._id %>"><%= a.title %>
+                  <% if(a.location) { %>
+                    – <%= a.location %>
+                  <% } %>
+                  </option>
+                <% }) %>
+              </select>Time: <%- `<input type="text" name="activityTime${i}">` %><br>
+            <% } %> 
+          </div>
         </label><br>
         <input type="submit" value="Create Date Plan">
     </form>

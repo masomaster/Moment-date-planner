@@ -25,11 +25,23 @@ function create(req, res) {
     req.body.userAvatar = req.user.avatar;
     console.log("this the req.body before changes: ", req.body);
     req.body.date = new Date (req.body.date+"T09:00:00Z")
-    // these commented-out sections may be necessary when I implement multiple activities per date plan
-    // const dateActivities = ;
-    // console.log("this the dateActivities after changes: ", dateActivities);
-    req.body.activities = [{activity: req.body.activityId}];
-    // req.body.activities.push(dateActivities);
+
+    // refactor activities and time into object fitting dateActivitySchema
+    // req.body.activities = [{activity: req.body.activityId, time: req.body.activityTime}];
+    req.body.activities = [];
+    for (let i=1; i < 7; i++) {
+        let activityId = eval("req.body.activityId"+i)
+        let activityTime = eval("req.body.activityTime"+i)
+        let activityObj = {};
+        if (activityId.length) {
+            activityObj.activity = activityId;
+            if (activityTime.length) {
+                activityObj.time = activityTime;
+            }
+            req.body.activities.push(activityObj);
+        }
+    }
+
     console.log("this the req.body after changes: ", req.body);
     const datePlan = new DatePlan(req.body);
     datePlan.save(function(err) {

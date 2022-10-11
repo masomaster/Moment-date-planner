@@ -22,7 +22,7 @@
             <th>Activities:</th>
             <td>
                 <% datePlan.activities.forEach(function(a) { %>
-                    <%= a.activity.title %><br>
+                    <%= a.time ? `${a.time}: ` : '' %><%= a.activity.title %><br>
                 <% }) %>
             </td>
         </tr>
