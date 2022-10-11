@@ -35,13 +35,6 @@ function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     req.body.title = req.body.title.charAt(0).toUpperCase() + req.body.title.slice(1);
-    // Not implementing "this activity already exists" feature for now, since a user might want to add multiple locations (e.g. RakiRaki in Mira Mesa and in Convoy)
-    // Activity.findOne(
-    //     {title: req.body.title}, function(err, activity) {
-    //         if (activity) return res.render('activities/new', { title: 'Create a New Activity', message: "This activity already exists"})
-    // move Activity.create and redirect to here if active
-    //     }
-    //     )
     Activity.create(req.body, function(err, activity) {
     });
     res.redirect('/');

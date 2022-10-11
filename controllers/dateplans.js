@@ -23,31 +23,28 @@ function create(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-    console.log("this the req.body before changes: ", req.body);
     req.body.date = new Date (req.body.date+"T09:00:00Z")
 
     // refactor activities and time into object fitting dateActivitySchema
     // req.body.activities = [{activity: req.body.activityId, time: req.body.activityTime}];
     req.body.activities = [];
-    for (let i=1; i < 7; i++) {
-        let activityId = eval("req.body.activityId"+i)
-        let activityTime = eval("req.body.activityTime"+i)
-        let activityObj = {};
-        if (activityId.length) {
-            activityObj.activity = activityId;
-            if (activityTime.length) {
-                activityObj.time = activityTime;
-            }
-            req.body.activities.push(activityObj);
+    let allActivityIds = [req.body.activityId1, req.body.activityId2, req.body.activityId3, req.body.activityId4, req.body.activityId5, req.body.activityId6];
+    let allActivityTimes = [req.body.activityTime1, req.body.activityTime2, req.body.activityTime3, req.body.activityTime4, req.body.activityTime5, req.body.activityTime6];
+    let usedActivities = allActivityIds.filter(id => id.length);
+    usedActivities.forEach(function(a) {
+        let activityObj = {};       
+        activityObj.activity = a;
+        let idx = allActivityIds.findIndex(el => el===a);
+        if (allActivityTimes[idx].length) {
+            activityObj.time = allActivityTimes[idx];
         }
-    }
+        req.body.activities.push(activityObj);
+    })
 
-    console.log("this the req.body after changes: ", req.body);
     const datePlan = new DatePlan(req.body);
     datePlan.save(function(err) {
-            console.log("Here is the new datePlan", datePlan)
-            res.redirect(`/dateplans/${datePlan._id}`);
-        });
+        res.redirect(`/dateplans/${datePlan._id}`);
+    });
 }
 
 function show(req, res) {
