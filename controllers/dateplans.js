@@ -8,6 +8,7 @@ module.exports = {
     show,
     delete: deleteDatePlan,
     edit,
+    update
 }
 
 function index(req, res) {
@@ -25,22 +26,7 @@ function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     req.body.date = new Date (req.body.date+"T09:00:00Z")
-
-    // Re-shape activities and time arguments into objects fitting dateActivitySchema
-    req.body.activities = [];
-    let allActivityIds = [req.body.activityId1, req.body.activityId2, req.body.activityId3, req.body.activityId4, req.body.activityId5, req.body.activityId6];
-    let allActivityTimes = [req.body.activityTime1, req.body.activityTime2, req.body.activityTime3, req.body.activityTime4, req.body.activityTime5, req.body.activityTime6];
-    let usedActivities = allActivityIds.filter(id => id.length);
-    usedActivities.forEach(function(a) {
-        let activityObj = {};       
-        activityObj.activity = a;
-        let idx = allActivityIds.findIndex(el => el===a);
-        if (allActivityTimes[idx].length) {
-            activityObj.time = allActivityTimes[idx];
-        }
-        req.body.activities.push(activityObj);
-    })
-
+    req.body = reshapeActivitiesForSchema(req.body)
     const datePlan = new DatePlan(req.body);
     datePlan.save(function(err) {
         res.redirect(`/dateplans/${datePlan._id}`);
@@ -59,7 +45,8 @@ function show(req, res) {
 }
 
 function deleteDatePlan(req, res) {
-    DatePlan.findByIdAndDelete(req.params.id, function(err) {
+    DatePlan.findOneAndDelete(
+        {_id: req.params.id, user: req.user._id}, function(err) {
         if (err) {
             console.log(err)
         }
@@ -79,4 +66,35 @@ function edit(req, res) {
             res.redirect('/')
         }
     })
+}
+
+function update(req, res) {
+    req.body = reshapeActivitiesForSchema(req.body)
+    DatePlan.findOneAndUpdate(
+        {_id: req.params.id, user: req.user._id},
+        req.body,
+        {new: true},
+        function(err, datePlan) {
+            if (err || !datePlan) return res.redirect('/dateplans');
+            res.redirect(`/dateplans/${datePlan._id}`);
+        }
+    )
+}
+
+// Re-shape activities and time arguments into objects fitting dateActivitySchema
+function reshapeActivitiesForSchema(reqBody) {
+    reqBody.activities = [];
+    let allActivityIds = [reqBody.activityId1, reqBody.activityId2, reqBody.activityId3, reqBody.activityId4, reqBody.activityId5, reqBody.activityId6];
+    let allActivityTimes = [reqBody.activityTime1, reqBody.activityTime2, reqBody.activityTime3, reqBody.activityTime4, reqBody.activityTime5, reqBody.activityTime6];
+    let usedActivities = allActivityIds.filter(id => id.length);
+    usedActivities.forEach(function(a) {
+        let activityObj = {};       
+        activityObj.activity = a;
+        let idx = allActivityIds.findIndex(el => el===a);
+        if (allActivityTimes[idx].length) {
+            activityObj.time = allActivityTimes[idx];
+        }
+        reqBody.activities.push(activityObj);
+    })
+    return reqBody;
 }

@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
 
 <div class="content">
-    <h2>Browse Activities by Category</h2>
+    <h2>Browse Date Activities</h2>
     <div class = "activities-grid">
         <% activities.forEach(function(a) { %>
             <% if(a.public || (user && user._id.equals(a.user))) { %> 
@@ -19,20 +19,20 @@
             <a href = "/activities/new">Add New Activity</a>
         <% } %>
     </div>
-    <% if (user) { %>
         <div class = "dates-grid">
-            <h2>Your Date Night Plans</h2>
+            <h2>Browse Date Plans</h2>
             <% dateplans.forEach(function(d) { %> 
                 <div class = "date-block">
-                    <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>                
-                    <% if (d.date) { %>
-                        <%= d.date.toDateString() %>
+                    <% if(d.public || (user && user._id.equals(d.user))) { %>
+                        <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>                
+                        <% if (d.date) { %>
+                            <%= d.date.toDateString() %>
+                        <% } %>
+                        <%= d.location %>
                     <% } %>
-                    <%= d.location %>
                 </div>
             <% }) %> 
             <a href = "/dateplans/new">Add New Date Plan</a>
         </div>
-    <% } %>
 </div>
 <%- include('./partials/footer') %>

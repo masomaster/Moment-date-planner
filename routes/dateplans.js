@@ -11,6 +11,7 @@ router.post('/', isLoggedIn, datePlansCtrl.create);
 router.get('/:id', datePlansCtrl.show);
 router.delete('/:id', isLoggedIn, datePlansCtrl.delete)
 router.get('/:id/edit', isLoggedIn, datePlansCtrl.edit)
+router.put('/:id', isLoggedIn, datePlansCtrl.update);
 
 
 module.exports = router;
