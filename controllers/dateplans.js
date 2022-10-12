@@ -1,6 +1,5 @@
 const DatePlan = require('../models/dateplan');
 const Activity = require('../models/activity');
-const mongoose = require('mongoose');
 
 module.exports = {
     index,
@@ -8,6 +7,7 @@ module.exports = {
     create,
     show,
     delete: deleteDatePlan,
+    edit,
 }
 
 function index(req, res) {
@@ -50,7 +50,6 @@ function create(req, res) {
 function show(req, res) {
     DatePlan.findById({_id: req.params.id})
     .populate('activities.activity').exec(function(err, datePlan) {
-        console.log("this is the datePlan to show: ", datePlan)
         if ((req.user && datePlan.user.equals(req.user._id)) || datePlan.public === true) {
             res.render('dateplans/show', { title: datePlan.title, datePlan})
         } else {
@@ -65,5 +64,19 @@ function deleteDatePlan(req, res) {
             console.log(err)
         }
         res.redirect('/')
+    })
+}
+
+function edit(req, res) {
+    DatePlan.findById({_id: req.params.id})
+    .populate('activities.activity').exec(function(err, datePlan) {
+        if ((req.user && datePlan.user.equals(req.user._id)) || datePlan.public === true) {
+            Activity.find({}, function(err, activities) {
+                console.log("this is the datePlan to edit", datePlan);
+                res.render('dateplans/edit', { title: datePlan.title, datePlan, activities})
+            })
+        } else {
+            res.redirect('/')
+        }
     })
 }
