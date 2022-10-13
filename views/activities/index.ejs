@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<div class="content">
+<div class="content browse-page">
     <h1><%= title %></h1>
     <div class="activity-grid">
         <table>
@@ -15,22 +15,20 @@
             <tbody>
                 <% activities.forEach(function(a) { %>
                     <% if(a.public || (user && user._id.equals(a.user))) { %> 
-                        <div class="activity-row">
-                            <tr>
-                                <td>
-                                    <a href= "/activities/<%= a._id %>"><%= a.title %></a>
-                                </td>
-                                <td>
-                                    <%= a.category %>
-                                </td>
-                                <td>
-                                    <%= a.location %>
-                                </td>
-                                <td>
-                                    <%= a.vibe %>
-                                </td>
-                            </tr>
-                        </div>
+                        <tr>
+                            <td>
+                                <a href= "/activities/<%= a._id %>"><%= a.title %></a>
+                            </td>
+                            <td>
+                                <%= a.category %>
+                            </td>
+                            <td>
+                                <%= a.location %>
+                            </td>
+                            <td>
+                                <%= a.vibe %>
+                            </td>
+                        </tr>
                     <% } %>
                 <% }) %>
             </tbody>

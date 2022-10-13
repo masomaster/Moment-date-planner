@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<div class="content">
+<div class="content browse-page date-plans">
     <h1><%= title %></h1>
     <div class="dateplan-grid">
         <table>
@@ -11,37 +11,35 @@
                     <th><% if (user) { %>
                         People
                     <% } %>  </th>
-                    <th>Activities</th>
+                    <th id="browse-all-act-column">Activities</th>
                 </tr>
             </thead>
             <tbody>
                 <% dateplans.forEach(function(d) { %>
                     <% if(d.public || (user && user._id.equals(d.user))) { %> 
-                        <div class="dateplan-row">
-                            <tr>
-                                <td>
-                                    <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
-                                </td>
-                                <td>
-                                    <% if (d.date) { %>
-                                        <%= d.date.toDateString() %>
-                                    <% } %>
-                                </td>
-                                <td>
-                                    <% if (user) { %>
-                                        <%= d.people %>
-                                    <% } %>
-                                </td>
-                                <td>
-                                    <% let actStr = ""; %>
-                                    <% d.activities.forEach(function(a) { %>
-                                        <% console.log(a) %>
-                                        <% actStr += `${a.activity.title}  |  `; %>
-                                    <% }) %>
-                                    <%= actStr %>
-                                </td>
-                            </tr>
-                        </div>
+                        <tr>
+                            <td>
+                                <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
+                            </td>
+                            <td>
+                                <% if (d.date) { %>
+                                    <%= d.date.toDateString() %>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (user) { %>
+                                    <%= d.people %>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% let actStr = ""; %>
+                                <% d.activities.forEach(function(a) { %>
+                                    <% console.log(a) %>
+                                    <% actStr += `${a.activity.title}  |  `; %>
+                                <% }) %>
+                                <%= actStr %>
+                            </td>
+                        </tr>
                     <% } %>
                 <% }) %>
             </tbody>

@@ -16,7 +16,10 @@
                     <% if((a.public || (user && user._id.equals(a.user))) && i < 3) { %> 
                         <div class="activity-block">
                             <a href= "/activities/<%= a._id %>"><%= a.title %></a>
+                            <% if(a.location) { %>
+                                </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                             <%= a.location %>
+                        <% } %>
                         </div>
                         <% i++ %>
                     <% } %>
@@ -37,8 +40,11 @@
                 <% dateplans.forEach(function(d) { %> 
                     <% if((d.public || (user && user._id.equals(d.user))) && i < 3) { %> 
                         <div class = "date-block">
-                            <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
-                            <%= d.location %>
+                            <a href= "/dateplans/<%= d._id %>"><%= d.title %>
+                            <% if(d.location) { %>
+                                </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                <%= d.location %>
+                            <% } %>
                         </div>
                         <% i++ %>
                     <% } %>

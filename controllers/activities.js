@@ -11,7 +11,7 @@ module.exports = {
 }
 
 function index(req, res) {
-    Activity.find({}, function(err, activities) {
+    Activity.find({}).sort('title').exec(function(err, activities) {
         res.render('activities/index', { title: 'Browse All Activities', activities});  
     });
 }
