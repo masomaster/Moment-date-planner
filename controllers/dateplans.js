@@ -52,7 +52,7 @@ function deleteDatePlan(req, res) {
         if (err) {
             console.log(err)
         }
-        res.redirect('/')
+        res.redirect('/dateplans')
     })
 }
 
@@ -61,7 +61,6 @@ function edit(req, res) {
     .populate('activities.activity').exec(function(err, datePlan) {
         if ((req.user && datePlan.user.equals(req.user._id)) || datePlan.public === true) {
             Activity.find({}, function(err, activities) {
-                console.log("this is the datePlan to edit", datePlan);
                 res.render('dateplans/edit', { title: datePlan.title, datePlan, activities})
             })
         } else {

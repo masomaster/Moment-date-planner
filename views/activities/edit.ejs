@@ -1,30 +1,59 @@
 <%- include('../partials/header') %>
 
-<div class="content">
+<div class="content browse-page">
   <h1><%= title %></h1>
-    <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
-        <label>Title:
+  <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
+    <table>
+      <tr>
+        <th>
+          <label>Title:
+        </th>
+        <td>
           <input type="text" name="title" value="<%= activity.title %>">
-        </label><br>
-        <label>Location: 
-          <input type="text" name="location" value="<%= activity.location %>">
-        </label><br>
-        <label>Website: 
-          <input type="url" name="url" value="<%= activity.url %>">
-        </label><br>
-        <label>Vibe:
-          <select name="vibe">
-            <% const vibes = ["Romantic", "Chill", "Hipster", "Energetic", "Adventure"] %>
-            <% vibes.forEach(function(v) { %>
-              <% if (activity.vibe === v) { %>
-                <option value="<%= v %>" selected><%= v %></option>
-              <% } else { %>
-                <option value="<%= v %>"><%= v %></option>
-              <% } %>
-            <% }) %>
-          </select>
-        </label><br>
-        <label>Category:
+          </label> 
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label>Location: 
+        </th>
+        <td>
+            <input type="text" name="location" value="<%= activity.location %>">
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label>Website: 
+        </th>
+        <td>
+            <input type="url" name="url" value="<%= activity.url %>">
+          </label><br>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label>Vibe:
+        </th>
+        <td>
+            <select name="vibe">
+              <% const vibes = ["Romantic", "Chill", "Hipster", "Energetic", "Adventure"] %>
+              <% vibes.forEach(function(v) { %>
+                <% if (activity.vibe === v) { %>
+                  <option value="<%= v %>" selected><%= v %></option>
+                <% } else { %>
+                  <option value="<%= v %>"><%= v %></option>
+                <% } %>
+              <% }) %>
+            </select>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label>Category:
+        </th>
+        <td>
           <select name="category">
             <% const categories = ["Food", "Drinks", "Entertainment", "Outdoors", "Physical Activity/Exercise", "Sightseeing"] %>
             <% categories.forEach(function(c) { %>
@@ -35,16 +64,31 @@
               <% } %>
             <% }) %>
           </select>
-        </label><br>
-        <label>Notes: 
-          <textarea name="notes"><%= activity.notes %></textarea>
-        </label><br>
-        <p>Visibility:</p>
+        </label>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label>Notes: 
+        </th>
+        <td>
+            <textarea name="notes"><%= activity.notes %></textarea>
+          </label><br>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Visibility:
+        </th>
+        <td>
           <input type="radio" id="public" name="public" value="true" checked=<% activity.public ? 'checked' : '' %>>
           <label for="public">Public</label><br>
           <input type="radio" id="private" name="public" value="false" checked=<% activity.public ? 'checked' : '' %>>
           <label for="private">Private</label><br>
-        <input type="submit" value="Save Activity">
-      </form>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Save Activity">
+  </form>
 </div>
 <%- include('../partials/footer') %>

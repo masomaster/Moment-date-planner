@@ -37,7 +37,7 @@ function create(req, res) {
     req.body.title = req.body.title.charAt(0).toUpperCase() + req.body.title.slice(1);
     Activity.create(req.body, function(err, activity) {
     });
-    res.redirect('/');
+    res.redirect('/activities');
 }
 
 function edit(req, res) {
