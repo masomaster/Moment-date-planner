@@ -11,11 +11,11 @@
   <nav>
     <img src="">
     <h2>San Diego Date Night Planner</h2>
+    <a href = "/">HOME</a>
+    <a href="/activities" <%- title === 'Browse Activities' ? 'class="active"' : '' %>>BROWSE ACTIVITIES</a>
+    <a href="/dateplans"	<%- title === 'Browse Date Plans' ? 'class="active"' : '' %>>
+      BROWSE DATE PLANS</a>
     <% if (user) { %>
-      <a href = "/">HOME</a>
-      <a href="/activities" <%- title === 'Browse Activities' ? 'class="active"' : '' %>>BROWSE ACTIVITIES</a>
-      <a href="/dateplans"	<%- title === 'Browse Date Plans' ? 'class="active"' : '' %>>
-        BROWSE DATE PLANS</a>
       <a href="/logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

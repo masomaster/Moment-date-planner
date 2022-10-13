@@ -1,8 +1,51 @@
 <%- include('../partials/header') %>
 
 <div class="content">
-
-    <p>This is the dates/index page</p>
-
+    <div class="dateplan-grid">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date Plan</th>
+                    <th>Date</th>
+                    <th><% if (user) { %>
+                        People
+                    <% } %>  </th>
+                    <th>Activities</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% dateplans.forEach(function(d) { %>
+                    <% if(d.public || (user && user._id.equals(d.user))) { %> 
+                        <div class="dateplan-row">
+                            <tr>
+                                <td>
+                                    <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
+                                </td>
+                                <td>
+                                    <% if (d.date) { %>
+                                        <%= d.date.toDateString() %>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <% if (user) { %>
+                                        <%= d.people %>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <% let actStr = ""; %>
+                                    <% d.activities.forEach(function(a) { %>
+                                        <% console.log(a) %>
+                                        <% actStr += `${a.activity.title}  |  `; %>
+                                    <% }) %>
+                                    <%= actStr %>
+                                </td>
+                            </tr>
+                        </div>
+                    <% } %>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <%- include('../partials/footer') %>

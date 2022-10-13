@@ -12,7 +12,9 @@ module.exports = {
 }
 
 function index(req, res) {
-    res.render('dateplans/index', { title: 'Browse Date Plans'});
+    DatePlan.find({}).populate('activities.activity').exec(function(err, dateplans) {
+        res.render('dateplans/index', { title: 'Browse Date Plans', dateplans});
+    })
 }
 
 function newDate(req, res) {

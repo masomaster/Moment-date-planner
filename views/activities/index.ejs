@@ -1,14 +1,40 @@
 <%- include('../partials/header') %>
 
 <div class="content">
-
-    <% activities.forEach(function(a) { %>
-        <p><%= a.title %></p>
-    <% }) %>
-    
-    <% if(user) { %>
-        <a href = "/activities/new">Add New Activity</a>
-    <% } %>
+    <div class="activity-grid">
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Vibe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% activities.forEach(function(a) { %>
+                    <% if(a.public || (user && user._id.equals(a.user))) { %> 
+                        <div class="activity-row">
+                            <tr>
+                                <td>
+                                    <a href= "/activities/<%= a._id %>"><%= a.title %></a>
+                                </td>
+                                <td>
+                                    <%= a.category %>
+                                </td>
+                                <td>
+                                    <%= a.location %>
+                                </td>
+                                <td>
+                                    <%= a.vibe %>
+                                </td>
+                            </tr>
+                        </div>
+                    <% } %>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <%- include('../partials/footer') %>
