@@ -9,7 +9,7 @@ const dateActivitySchema = new Schema ({
     }
 }, {
     timestamps: true
-  })
+})
 
 const dateSchema = new Schema ({
     title: {

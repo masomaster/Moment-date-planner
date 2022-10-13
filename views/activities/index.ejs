@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="content">
+    <h1><%= title %></h1>
     <div class="activity-grid">
         <table>
             <thead>
@@ -35,6 +36,9 @@
             </tbody>
         </table>
     </div>
+    <form action = "/activities/new">
+        <button type="submit">Add New Activity</button>
+    </form>
 </div>
 
 <%- include('../partials/footer') %>

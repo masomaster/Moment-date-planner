@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="content">
-
+  <h1><%= title %></h1>
     <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
         <label>Title:
           <input type="text" name="title" value="<%= activity.title %>">

@@ -1,52 +1,51 @@
 <%- include('../partials/header') %>
 
 <div class="content">
-
-    <form action="/dateplans" method="POST">
-        <label>Title:
-          <input type="text" name="title">
-        </label><br>
-        <label>Date:
-          <% let defaultDate = new Date() %>
-          <% let dateString = `${defaultDate.getFullYear().toString()}-${(defaultDate.getMonth()+1).toString().padStart(2, '0')}-${defaultDate.getDate().toString().padStart(2, '0')}` %>
-          <input type="date" name="date" value="<%= dateString %>">
-        </label><br>
-        <label>Location:
-          <input type="text" name="location">
-        </label><br>
-        <label>Who's coming?
-          <input type="text" name="people">
-        </label><br>
-        <label>Add activities to date (you can leave entries blank):
-          <div class="activities-list">
-            <% for(let i=1; i < 7; i++) { %>
-              <%- `Activity #${i}` %>
-              <%- `<select name="activityId${i}">` %>
-                <option></option>
-                <% activities.forEach(function(a) { %>
-                  <option value="<%= a._id %>"><%= a.title %>
-                  <% if(a.location) { %>
-                    – <%= a.location %>
-                  <% } %>
-                  </option>
-                <% }) %>
-              </select>Time: <%- `<input type="text" name="activityTime${i}">` %><br>
-            <% } %> 
-          </div>
-        </label><br>
-        <label>Notes: 
-          <textarea name="notes"></textarea>
-        </label><br>
-        <label>Visibility:
-          <div>
-            <input type="radio" id="public" name="public" value="true" checked="checked">
-            <label for="public">Public</label><br>
-            <input type="radio" id="private" name="public" value="false">
-            <label for="private">Private</label><br>
-          </div>
-        </label>
-        <input type="submit" value="Create Date Plan">
-    </form>
-
+  <h1><%= title %></h1>
+  <form action="/dateplans" method="POST">
+      <label>Title:
+        <input type="text" name="title">
+      </label><br>
+      <label>Date:
+        <% let defaultDate = new Date() %>
+        <% let dateString = `${defaultDate.getFullYear().toString()}-${(defaultDate.getMonth()+1).toString().padStart(2, '0')}-${defaultDate.getDate().toString().padStart(2, '0')}` %>
+        <input type="date" name="date" value="<%= dateString %>">
+      </label><br>
+      <label>Location:
+        <input type="text" name="location">
+      </label><br>
+      <label>Who's coming?
+        <input type="text" name="people">
+      </label><br>
+      <label>Add activities to date (you can leave entries blank):
+        <div class="activities-list">
+          <% for(let i=1; i < 7; i++) { %>
+            <%- `Activity #${i}` %>
+            <%- `<select name="activityId${i}">` %>
+              <option></option>
+              <% activities.forEach(function(a) { %>
+                <option value="<%= a._id %>"><%= a.title %>
+                <% if(a.location) { %>
+                  – <%= a.location %>
+                <% } %>
+                </option>
+              <% }) %>
+            </select>Time: <%- `<input type="text" name="activityTime${i}">` %><br>
+          <% } %> 
+        </div>
+      </label><br>
+      <label>Notes: 
+        <textarea name="notes"></textarea>
+      </label><br>
+      <label>Visibility:
+        <div>
+          <input type="radio" id="public" name="public" value="true" checked="checked">
+          <label for="public">Public</label><br>
+          <input type="radio" id="private" name="public" value="false">
+          <label for="private">Private</label><br>
+        </div>
+      </label>
+      <input type="submit" value="Create Date Plan">
+  </form>
 </div>
 <%- include('../partials/footer') %>

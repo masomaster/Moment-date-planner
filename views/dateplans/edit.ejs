@@ -1,129 +1,128 @@
 <%- include('../partials/header') %>
 
 <div class="content">
-
-    <form action="/dateplans/<%= datePlan._id %>?_method=PUT" method="POST">
-        <label>Title:
-          <input type="text" name="title" value="<%= datePlan.title %>">
-        </label><br>
-        <label>Date:
-          <% let existingDate = datePlan.date %>
-          <% let dateString = `${existingDate.getFullYear().toString()}-${(existingDate.getMonth()+1).toString().padStart(2, '0')}-${existingDate.getDate().toString().padStart(2, '0')}` %>
-          <input type="date" name="date" value="<%= dateString %>">
-        </label><br>
-        <label>Location:
-          <input type="text" name="location" value="<%= datePlan.location %>">
-        </label><br>
-        <label>Who's coming?
-          <input type="text" name="people" value="<%= datePlan.people %>">
-        </label><br>
-        <label>Add activities to date (you can leave entries blank):
-          <div class="activities-list">
-            Activity #1:
-            <select name="activityId1">
-              <option></option>
-              <% activities.forEach(function(a) { %>
-                <option value="<%= a._id %>"
-                  <% if (datePlan.activities[0] && datePlan.activities[0].activity.title === a.title) { %>
-                    <%= "selected" %>
-                  <% } %>>
-                <%= a.title %>
-                <% if(a.location) { %>
-                  – <%= a.location %>
-                <% } %>
-                </option>
-              <% }) %>
-            </select> Time: <input type="text" name="activityTime1"><br>
-            Activity #2:
-            <select name="activityId2">
-              <option></option>
-              <% activities.forEach(function(a) { %>
-                <option value="<%= a._id %>"
-                  <% if (datePlan.activities[1] && datePlan.activities[1].activity.title === a.title) { %>
-                    <%= "selected" %>
-                  <% } %>>
-                <%= a.title %>
-                <% if(a.location) { %>
-                  – <%= a.location %>
-                <% } %>
-                </option>
-              <% }) %>
-            </select> Time: <input type="text" name="activityTime2"><br>
-            Activity #3:
-            <select name="activityId3">
-              <option></option>
-              <% activities.forEach(function(a) { %>
-                <option value="<%= a._id %>"
-                  <% if (datePlan.activities[2] && datePlan.activities[2].activity.title === a.title) { %>
-                    <%= "selected" %>
-                  <% } %>>
-                <%= a.title %>
-                <% if(a.location) { %>
-                  – <%= a.location %>
-                <% } %>
-                </option>
-              <% }) %>
-            </select> Time: <input type="text" name="activityTime3"><br>
-            Activity #4:
-            <select name="activityId4">
-              <option></option>
-              <% activities.forEach(function(a) { %>
-                <option value="<%= a._id %>"
-                  <% if (datePlan.activities[3] && datePlan.activities[3].activity.title === a.title) { %>
-                    <%= "selected" %>
-                  <% } %>>
-                <%= a.title %>
-                <% if(a.location) { %>
-                  – <%= a.location %>
-                <% } %>
-                </option>
-              <% }) %>
-            </select> Time: <input type="text" name="activityTime4"><br>
-            Activity #5:
-            <select name="activityId5">
-              <option></option>
-              <% activities.forEach(function(a) { %>
-                <option value="<%= a._id %>"
-                  <% if (datePlan.activities[4] && datePlan.activities[4].activity.title === a.title) { %>
-                    <%= "selected" %>
-                  <% } %>>
-                <%= a.title %>
-                <% if(a.location) { %>
-                  – <%= a.location %>
-                <% } %>
-                </option>
-              <% }) %>
-            </select> Time: <input type="text" name="activityTime5"><br>
-            Activity #6:
-            <select name="activityId6">
-              <option></option>
-              <% activities.forEach(function(a) { %>
-                <option value="<%= a._id %>"
-                  <% if (datePlan.activities[5] && datePlan.activities[5].activity.title === a.title) { %>
-                    <%= "selected" %>
-                  <% } %>>
-                <%= a.title %>
-                <% if(a.location) { %>
-                  – <%= a.location %>
-                <% } %>
-                </option>
-              <% }) %>
-            </select> Time: <input type="text" name="activityTime6"><br>
-          </div>
-        </label><br>
-        <label>Notes: 
-          <textarea name="notes"><%= datePlan.notes %></textarea>
-        </label><br>
-        <label>Visibility:
-          <div>
-            <input type="radio" id="public" name="public" value="true" checked=<% datePlan.public ? 'checked' : '' %>>
-            <label for="public">Public</label><br>
-            <input type="radio" id="private" name="public" value="false" checked=<% datePlan.public ? 'checked' : '' %>>
-            <label for="private">Private</label><br>
-          </div>
-        </label>
-        <input type="submit" value="Save Date Plan">
-    </form>
-
+  <h1><%= title %></h1>
+  <form action="/dateplans/<%= datePlan._id %>?_method=PUT" method="POST">
+      <label>Title:
+        <input type="text" name="title" value="<%= datePlan.title %>">
+      </label><br>
+      <label>Date:
+        <% let existingDate = datePlan.date %>
+        <% let dateString = `${existingDate.getFullYear().toString()}-${(existingDate.getMonth()+1).toString().padStart(2, '0')}-${existingDate.getDate().toString().padStart(2, '0')}` %>
+        <input type="date" name="date" value="<%= dateString %>">
+      </label><br>
+      <label>Location:
+        <input type="text" name="location" value="<%= datePlan.location %>">
+      </label><br>
+      <label>Who's coming?
+        <input type="text" name="people" value="<%= datePlan.people %>">
+      </label><br>
+      <label>Add activities to date (you can leave entries blank):
+        <div class="activities-list">
+          Activity #1:
+          <select name="activityId1">
+            <option></option>
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"
+                <% if (datePlan.activities[0] && datePlan.activities[0].activity.title === a.title) { %>
+                  <%= "selected" %>
+                <% } %>>
+              <%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select> Time: <input type="text" name="activityTime1"><br>
+          Activity #2:
+          <select name="activityId2">
+            <option></option>
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"
+                <% if (datePlan.activities[1] && datePlan.activities[1].activity.title === a.title) { %>
+                  <%= "selected" %>
+                <% } %>>
+              <%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select> Time: <input type="text" name="activityTime2"><br>
+          Activity #3:
+          <select name="activityId3">
+            <option></option>
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"
+                <% if (datePlan.activities[2] && datePlan.activities[2].activity.title === a.title) { %>
+                  <%= "selected" %>
+                <% } %>>
+              <%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select> Time: <input type="text" name="activityTime3"><br>
+          Activity #4:
+          <select name="activityId4">
+            <option></option>
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"
+                <% if (datePlan.activities[3] && datePlan.activities[3].activity.title === a.title) { %>
+                  <%= "selected" %>
+                <% } %>>
+              <%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select> Time: <input type="text" name="activityTime4"><br>
+          Activity #5:
+          <select name="activityId5">
+            <option></option>
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"
+                <% if (datePlan.activities[4] && datePlan.activities[4].activity.title === a.title) { %>
+                  <%= "selected" %>
+                <% } %>>
+              <%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select> Time: <input type="text" name="activityTime5"><br>
+          Activity #6:
+          <select name="activityId6">
+            <option></option>
+            <% activities.forEach(function(a) { %>
+              <option value="<%= a._id %>"
+                <% if (datePlan.activities[5] && datePlan.activities[5].activity.title === a.title) { %>
+                  <%= "selected" %>
+                <% } %>>
+              <%= a.title %>
+              <% if(a.location) { %>
+                – <%= a.location %>
+              <% } %>
+              </option>
+            <% }) %>
+          </select> Time: <input type="text" name="activityTime6"><br>
+        </div>
+      </label><br>
+      <label>Notes: 
+        <textarea name="notes"><%= datePlan.notes %></textarea>
+      </label><br>
+      <label>Visibility:
+        <div>
+          <input type="radio" id="public" name="public" value="true" checked=<% datePlan.public ? 'checked' : '' %>>
+          <label for="public">Public</label><br>
+          <input type="radio" id="private" name="public" value="false" checked=<% datePlan.public ? 'checked' : '' %>>
+          <label for="private">Private</label><br>
+        </div>
+      </label>
+      <input type="submit" value="Save Date Plan">
+  </form>
 </div>
 <%- include('../partials/footer') %>

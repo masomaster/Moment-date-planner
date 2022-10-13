@@ -6,9 +6,10 @@ const Activity = require('../models/activity');
 const DatePlan = require('../models/dateplan');
 
 router.get('/', function(req, res, next) {
-  Activity.find({}, function(err, activities) {
-    DatePlan.find({}, function(err, dateplans) {
-      res.render('index', { title: "Home", activities, dateplans});  
+  Activity.find({}).sort('-updatedAt').limit(6).exec(function(err, activities) {
+    DatePlan.find({}).sort('-updatedAt').limit(6).exec(function(err, dateplans) {
+      console.log(activities, dateplans);
+      res.render('index', { title: "Create Magical Moments", activities, dateplans});  
     })
   });
 });
