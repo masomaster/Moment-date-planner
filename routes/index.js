@@ -8,7 +8,6 @@ const DatePlan = require('../models/dateplan');
 router.get('/', function(req, res, next) {
   Activity.find({}).sort('-updatedAt').limit(6).exec(function(err, activities) {
     DatePlan.find({}).sort('-updatedAt').limit(6).exec(function(err, dateplans) {
-      console.log(activities, dateplans);
       res.render('index', { title: "Create Magical Moments", activities, dateplans});  
     })
   });

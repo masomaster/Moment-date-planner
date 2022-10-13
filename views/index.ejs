@@ -3,46 +3,54 @@
 <div class="content">
     <div class="splash">
         <div class="image">
-
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/San_Diego%2C_United_States_%28Unsplash_fLtF68dMoQw%29.jpg">
+            <h1><%= title %></h1>
         </div>
-        <h1><%= title %></h1>
     </div>
     <div class="info-grids">
         <div class = "activities-grid">
-            <h2><a href="/activities">Browse Date Activities</a></h2>
-            <% let i = 0 %>
-            <% activities.forEach(function(a) { %>
-                <% if((a.public || (user && user._id.equals(a.user))) && i < 3) { %> 
-                    <div class="activity-block">
-                        <a href= "/activities/<%= a._id %>"><%= a.title %></a>
-                        <%= a.location %>
-                    </div>
-                    <% i++ %>
+            <div class="list">
+                <h2><a href="/activities">Browse Date Activities</a></h2>
+                <% let i = 0 %>
+                <% activities.forEach(function(a) { %>
+                    <% if((a.public || (user && user._id.equals(a.user))) && i < 3) { %> 
+                        <div class="activity-block">
+                            <a href= "/activities/<%= a._id %>"><%= a.title %></a>
+                            <%= a.location %>
+                        </div>
+                        <% i++ %>
+                    <% } %>
+                <% }) %>
+            </div>
+            <div class="button">
+                <% if(user) { %>
+                    <form action = "/activities/new">
+                        <button type="submit">Add New Activity</button>
+                    </form>
                 <% } %>
-            <% }) %>
-            <% if(user) { %>
-                <form action = "/activities/new">
-                    <button type="submit">Add New Activity</button>
-                </form>
-            <% } %>
+            </div>
         </div>
         <div class = "dates-grid">
-            <h2><a href="/dateplans">Browse Date Plans</a></h2>
-            <% i = 0 %>
-            <% dateplans.forEach(function(d) { %> 
-                <% if((d.public || (user && user._id.equals(d.user))) && i < 3) { %> 
-                    <div class = "date-block">
-                        <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
-                        <%= d.location %>
-                    </div>
-                    <% i++ %>
+            <div class="list">
+                <h2><a href="/dateplans">Browse Date Plans</a></h2>
+                <% i = 0 %>
+                <% dateplans.forEach(function(d) { %> 
+                    <% if((d.public || (user && user._id.equals(d.user))) && i < 3) { %> 
+                        <div class = "date-block">
+                            <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
+                            <%= d.location %>
+                        </div>
+                        <% i++ %>
+                    <% } %>
+                <% }) %> 
+            </div>
+            <div class="button">
+                <% if(user) { %>
+                    <form action = "/dateplans/new">
+                        <button type="submit">Add New Date Plan</button>
+                    </form>
                 <% } %>
-            <% }) %> 
-            <% if(user) { %>
-                <form action = "/dateplans/new">
-                    <button type="submit">Add New Date Plan</button>
-                </form>
-            <% } %>
+            </div>
         </div>
     </div>
 </div>

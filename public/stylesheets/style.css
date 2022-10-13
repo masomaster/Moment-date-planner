@@ -9,7 +9,6 @@ html {
 }
 
 body {
-  padding: 0 50px 50px;
   margin: 0 0 76.5px;
   font: 14px
 }
@@ -18,6 +17,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 0 30px;
 }
 
 nav > div {
@@ -35,27 +35,65 @@ nav h6 {
 }
 
 nav > a {
-  margin: 0 30px;
+  margin: 0 20px;
 }
 
 .content {
-  padding: 15px;
+  /* padding: 15px; */
   box-sizing: border-box;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position:absolute;
+}
+
+.splash {
+  position:absolute;
+  min-height: 60vh;
+  width: 100%;
+  left: 0;
+  padding: 0;
+}
+
+.splash h1 {
+  position: absolute;
+  color: white;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 4.7vw;
 }
 
 .info-grids {
   display: flex;
   justify-content:space-evenly;
   position: absolute;
-  left: 50px;
   bottom: 20px;
-  width: 90%;
-  height: 40%;
+  width: 100%;
+  height: 20%;
   align-self: flex-end;
+  min-height: 170px;
+  background-color: white;
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+nav div a:hover {
+  text-decoration: none;
 }
 
 .login {
@@ -71,6 +109,23 @@ a {
 
 th {
   text-align: left;
+}
+
+.activities-grid, .dates-grid {
+  display: flex;
+}
+
+.button {
+  align-self: center;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  border: none;
 }
 
 footer {
