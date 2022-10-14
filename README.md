@@ -24,9 +24,7 @@ Future icebox features include:
 - Share date plans or activities with other people
 - Automatically determine travel time between the locations of activities in a date plan (Google Maps API integration)
 - Search existing activities to add to a date plan
-- Show user who created a public activity or date plan
-- Alphabetize dropdown menus
 - Better ways to browse activities (photo grids, etc)
 - Yelp API integration
 - No requirement to schedule a date plan
-- Mobile responsive design
+- Improved mobile responsive design
