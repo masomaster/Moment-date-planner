@@ -7,15 +7,15 @@ With Moment, you can browse activities and restaurants in San Diego and add them
 <img style = "width: 30;" title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png">
 
 ## Technologies Used
-    - HTML/CSS
-    - JavaScript
-    - Express/EJS
-    - Node.js
-    - MongoDB/Mongoose
+- HTML/CSS
+- JavaScript
+- Express/EJS
+- Node.js
+- MongoDB/Mongoose
 
 ## Getting Started
 
-Click here to experience Moment for yourself! Login for the full experience.
+<a href = "https://moment-sd.onrender.com/">Experience Moment for yourself!</a> Login for the full experience.
 
 ## Next Steps
 
