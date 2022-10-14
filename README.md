@@ -15,7 +15,7 @@ With Moment, you can browse activities and restaurants in San Diego and add them
 
 ## Getting Started
 
-<a href = "https://moment-sd.onrender.com/">Experience Moment for yourself!</a> Login for the full experience.
+<a href = "https://moment-sd.onrender.com/" target="_blank">Experience Moment for yourself!</a> Login for the full experience.
 
 ## Next Steps
 
