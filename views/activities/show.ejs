@@ -27,14 +27,22 @@
             <th>Notes:</th>
             <td><%= activity.notes %></td>
         </tr>
+        <% if(user) { %>
+            <tr>
+                <th>Visible to Others?</th>
+                <td>
+                    <% if (activity.public) { %>
+                        Sure is!
+                    <% } else { %>
+                        Nope!
+                    <% } %>
+                </td>
+            </tr>
+        <% } %>
         <tr>
-            <th>Visible to Others?</th>
-            <td>
-                <% if (activity.public) { %>
-                    Sure is!
-                <% } else { %>
-                    Nope!
-                <% } %>
+            <th>Created by:</th>
+            <td class="review-user">
+                <img alt="avatar" src="<%= activity.userAvatar %>" referrerpolicy="no-referrer" ><%= activity.userName %></td>
             </td>
         </tr>
     </table>

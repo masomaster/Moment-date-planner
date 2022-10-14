@@ -18,7 +18,7 @@ function index(req, res) {
 }
 
 function newDate(req, res) {
-    Activity.find({}, function(err, activities) {
+    Activity.find({}).sort('title').exec(function(err, activities) {
         res.render('dateplans/new', { title: 'Create New Date Plan', activities});
     })
 }
@@ -60,7 +60,7 @@ function edit(req, res) {
     DatePlan.findById({_id: req.params.id})
     .populate('activities.activity').exec(function(err, datePlan) {
         if ((req.user && datePlan.user.equals(req.user._id)) || datePlan.public === true) {
-            Activity.find({}, function(err, activities) {
+            Activity.find({}).sort('title').exec(function(err, activities) {
                 res.render('dateplans/edit', { title: datePlan.title, datePlan, activities})
             })
         } else {

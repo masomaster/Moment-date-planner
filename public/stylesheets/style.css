@@ -190,6 +190,17 @@ textarea {
   height: 100px;
 }
 
+.review-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
 @media only screen and (max-width: 750px) {
 
   .info-grids {
