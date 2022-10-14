@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class="content browse-page">
-    <% if(user && user._id.equals(datePlan.user)) { %>
+    <% if(datePlan.public || (user && user._id.equals(datePlan.user))) { %>
         <h1><%= title %></h1>
         <table>
             <tr>
@@ -41,12 +41,15 @@
                 </td>
             </tr>
         </table>
+        <% if(user && user._id.equals(datePlan.user)) { %>
+
         <form action = "/dateplans/<%= datePlan._id %>/edit">
             <button type="submit">Edit Date Plan</button>
         </form>
         <form action = "/dateplans/<%= datePlan._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete Date Plan</button>            
         </form>
+        <% } %>
     <% } %>
 </div>
 <%- include('../partials/footer') %>
