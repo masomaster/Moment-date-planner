@@ -2,10 +2,8 @@
 
 With Moment, you can browse activities and restaurants in San Diego and add them to customized date plans. Share public activities and date plans, or keep yours private. Leave notes on activities for future reference and update or delete past plans.
 
-<img style = "width: 50%;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png">
-<img style = "width: 50%;" title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
-<img style = "width: 50%;" title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png">
-<img style = "width: 30%;" title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/screenshot - mobile.PNG">
+<img style = "width: 50%;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png"><img style = "width: 50%;" title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
+<img style = "width: 50%;" title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png"><img style = "width: 30%;" title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/screenshot - mobile.PNG">
 
 ## Technologies Used
 - HTML/CSS
