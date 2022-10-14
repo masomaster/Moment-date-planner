@@ -134,7 +134,7 @@ input[type=submit]:hover {
 
 .info-grids {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   position: absolute;
   bottom: 20px;
   width: 100%;
@@ -188,4 +188,49 @@ table {
 textarea {
   width: 250px;
   height: 100px;
+}
+
+@media only screen and (max-width: 750px) {
+
+  .info-grids {
+    flex-direction: column;
+    height: 60%;
+    min-height: 250px;
+    padding: 0 20px;
+  }
+
+  .splash {
+    height: 150px;
+    min-height: 150px;
+  }
+
+  nav {
+    font-size: 10px;
+    padding: 0 5px;
+    justify-content: space-between;
+  }
+
+  nav h1 {
+    font-size: 16px;
+  }
+
+  button {
+    padding: 5px;
+    margin: 5px;
+  }
+
+  .button, input[type=button], input[type=submit] {
+    margin: 15px 5px;
+  }
+
+  table {
+    width: 350px;
+    justify-self: center;
+    margin: 0;
+  }
+
+  .browse-page {
+    justify-content: inherit;
+  }
+
 }
