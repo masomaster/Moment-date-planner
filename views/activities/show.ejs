@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<div class="content browse-page">
+<div class="content browse-page show-page">
     <h1><%= title %></h1>
     <table>
         <tr>
@@ -46,13 +46,33 @@
             </td>
         </tr>
     </table>
-    <% if(user && user._id.equals(activity.user)) { %>
-        <form action = "/activities/<%= activity._id %>/edit">
-            <button type="submit">Edit Activity</button>
+    <% if(user) { %>
+        <hr>
+        <h2>Add to a date plan:</h2>
+        <form action = "/dateplans/<%= activity._id %>/addactivity?_method=PUT" method="POST">
+            <select name="datePlanId">
+                <% dateplans.forEach(function(d) { %>
+                    <option value="<%= d._id %>">
+                        <%= d.title %>
+                        <% if(d.location) { %>
+                            – <%= d.location %>
+                        <% } %>
+                    </option>
+                <% }) %>
+            </select>
+                <button type="submit">Add <%= activity.title %></button>
         </form>
-        <form action = "/activities/<%= activity._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete Activity</button>            
-        </form>
+    <% } %>
+        <% if(user && user._id.equals(activity.user)) { %>
+        <hr>
+        <div>
+            <form action = "/dateplans/<%= activity._id %>/activity">
+                <button type="submit">Edit Activity</button>
+            </form>
+            <form action = "/activities/<%= activity._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Activity</button>            
+            </form>
+        </div>
     <% } %>
 
 </div>

@@ -1,4 +1,5 @@
 const Activity = require('../models/activity');
+const DatePlan = require('../models/dateplan');
 
 module.exports = {
     index,
@@ -19,7 +20,9 @@ function index(req, res) {
 function show(req, res) {
     Activity.findById({_id: req.params.id}, function(err, activity) {
         if ((activity.user.equals(req.user?._id)) || activity.public === true) {
-            res.render('activities/show', { title: activity.title, activity });
+            DatePlan.find({}).sort('title').exec(function(err, dateplans) {
+                res.render('activities/show', { title: activity.title, activity, dateplans });
+            });
         } else {
             res.redirect('/')
         }

@@ -205,6 +205,19 @@ textarea {
   max-width: 60vw;
 }
 
+hr {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.show-page button {
+  margin-top: 20px;
+}
+
+.show-page form {
+  display: inline-block
+}
+
 @media only screen and (max-width: 650px) {
 
   .info-grids {

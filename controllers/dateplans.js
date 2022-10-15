@@ -8,7 +8,8 @@ module.exports = {
     show,
     delete: deleteDatePlan,
     edit,
-    update
+    update,
+    addActivity
 }
 
 function index(req, res) {
@@ -70,6 +71,7 @@ function edit(req, res) {
 }
 
 function update(req, res) {
+    console.log(req.body);
     req.body = reshapeActivitiesForSchema(req.body)
     DatePlan.findOneAndUpdate(
         {_id: req.params.id, user: req.user._id},
@@ -98,4 +100,32 @@ function reshapeActivitiesForSchema(reqBody) {
         reqBody.activities.push(activityObj);
     })
     return reqBody;
+}
+
+function addActivity(req, res) {
+    Activity.find(
+        {$or: [
+            {_id: req.params.id, public: true}, 
+            {_id: req.params.id, user: req.user._id}
+        ]
+    }).exec(function(err, activity) {
+        if(err) {
+            console.log(err)
+        } else {
+            let newActObj = {
+                activity: activity[0]._id,
+                time: '',
+            }
+            DatePlan.findOne({_id: req.body.datePlanId, user: req.user._id}, function(err, datePlan) { 
+                if(err) {
+                    console.log(err)
+                } else {
+                    datePlan.activities.push(newActObj);
+                    datePlan.save(function(err) {
+                    })
+                }
+            })
+        }
+    })
+    res.redirect('/activities');
 }
