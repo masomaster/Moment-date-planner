@@ -46,155 +46,33 @@
           <th rowspan="6" id="edit-date-act-list-col">
             <label>Add activities to date (you can leave entries blank):
           </th>
-            <td class="activities-list">
-                Activity #1:
-                <select name="activityId1">
-                  <option></option>
-                  <% activities.forEach(function(a) { %>
-                    <option value="<%= a._id %>"
-                      <% if (datePlan.activities[0]?.activity.title === a.title) { %>
-                        <%= "selected" %>
-                      <% } %>>
-                    <%= a.title %>
-                    <% if(a.location) { %>
-                      – <%= a.location %>
-                    <% } %>
-                    </option>
-                  <% }) %>
-                </select> 
-            </td>
-            <td class="activities-list-time">
-              Time: <input type="text" name="activityTime1"
-              <% if (datePlan.activities[0]) { %>
-                value=<%= datePlan.activities[0].time %> %>>
-              <% } %>
-            </td>
-          </tr>
-          <tr>
-            <td class="activities-list">
-              Activity #2:
-              <select name="activityId2">
-                <option></option>
-                <% activities.forEach(function(a) { %>
-                  <option value="<%= a._id %>"
-                    <% if (datePlan.activities[1]?.activity.title === a.title) { %>
-                      <%= "selected" %>
-                    <% } %>>
-                  <%= a.title %>
-                  <% if(a.location) { %>
-                    – <%= a.location %>
-                  <% } %>
-                  </option>
-                <% }) %>
-              </select> 
-            </td>
-            <td class="activities-list-time">
-            Time: <input type="text" name="activityTime2"
-            <% if (datePlan.activities[1]) { %>
-              value=<%= datePlan.activities[1].time %> %>>
-            <% } %>
+
+          <!-- Eventually replace this with process to dynamically show an empty dropdown menu if last one is filled -->
+
+          <% for (let i=0; i < 6; i++) { %>
+          <td class="activities-list">
+            <%= `Activity #${i+1}:` %>
+            <select name=<%= `activityId${i+1}` %> > 
+              <option></option>
+              <% activities.forEach(function(a) { %>
+                <option value="<%= a._id %>"
+                  <% if (datePlan.activities[i]?.activity?.title === a.title) { %>
+                    <%= "selected" %>
+                  <% } %>>
+                <%= a.title %>
+                <% if(a.location) { %>
+                  – <%= a.location %>
+                <% } %>
+                </option>
+              <% }) %>
+            </select> 
+          </td>
+          <td class="activities-list-time">
+            Time: <input type="text" name=<%=`activityTime${i+1}` %> value="<%= datePlan?.activities[i]?.time %>" %>>
             </td>
           </tr>
           <tr>
-            <td class="activities-list">
-              Activity #3:
-              <select name="activityId3">
-                <option></option>
-                <% activities.forEach(function(a) { %>
-                  <option value="<%= a._id %>"
-                    <% if (datePlan.activities[2]?.activity.title === a.title) { %>
-                      <%= "selected" %>
-                    <% } %>>
-                  <%= a.title %>
-                  <% if(a.location) { %>
-                    – <%= a.location %>
-                  <% } %>
-                  </option>
-                <% }) %>
-              </select> 
-            </td>
-            <td class="activities-list-time">
-              Time: <input type="text" name="activityTime3"
-              <% if (datePlan.activities[2]) { %>
-                value=<%= datePlan.activities[2].time %> %>>
-              <% } %>
-            </td>
-          </tr>
-          <tr>
-            <td class="activities-list">
-              Activity #4:
-              <select name="activityId4">
-                <option></option>
-                <% activities.forEach(function(a) { %>
-                  <option value="<%= a._id %>"
-                    <% if (datePlan.activities[3]?.activity.title === a.title) { %>
-                      <%= "selected" %>
-                    <% } %>>
-                  <%= a.title %>
-                  <% if(a.location) { %>
-                    – <%= a.location %>
-                  <% } %>
-                  </option>
-                <% }) %>
-              </select> 
-            </td>
-            <td class="activities-list-time">
-              Time: <input type="text" name="activityTime4"
-              <% if (datePlan.activities[3]) { %>
-                value=<%= datePlan.activities[3].time %> %>>
-              <% } %>
-            </td>
-          </tr>
-          <tr>
-            <td class="activities-list">
-              Activity #5:
-              <select name="activityId5">
-                <option></option>
-                <% activities.forEach(function(a) { %>
-                  <option value="<%= a._id %>"
-                    <% if (datePlan.activities[4]?.activity.title === a.title) { %>
-                      <%= "selected" %>
-                    <% } %>>
-                  <%= a.title %>
-                  <% if(a.location) { %>
-                    – <%= a.location %>
-                  <% } %>
-                  </option>
-                <% }) %>
-              </select> 
-            </td>
-            <td class="activities-list-time">
-              Time: <input type="text" name="activityTime5"
-              <% if (datePlan.activities[4]) { %>
-                value=<%= datePlan.activities[4].time %> %>>
-              <% } %>
-            </td>
-          </tr>
-          <tr>
-            <td class="activities-list">
-              Activity #6:
-              <select name="activityId6">
-                <option></option>
-                <% activities.forEach(function(a) { %>
-                  <option value="<%= a._id %>"
-                    <% if (datePlan.activities[5]?.activity.title === a.title) { %>
-                      <%= "selected" %>
-                    <% } %>>
-                  <%= a.title %>
-                  <% if(a.location) { %>
-                    – <%= a.location %>
-                  <% } %>
-                  </option>
-                <% }) %>
-              </select> 
-            </td>
-            <td class="activities-list-time">
-              Time: <input type="text" name="activityTime6" 
-              <% if (datePlan.activities[5]) { %>
-                value=<%= datePlan.activities[5].time %> %>>
-              <% } %>
-            </td>
-          </tr>
+            <% } %>        
       </label>
       <tr>
         <th>
@@ -223,4 +101,5 @@
     <input type="submit" value="Save Date Plan">
   </form>
 </div>
+
 <%- include('../partials/footer') %>
