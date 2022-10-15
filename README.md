@@ -6,10 +6,10 @@ With Moment, you can browse activities and restaurants in San Diego and add them
 
 <a href = "https://moment-sd.onrender.com/" target="_blank">Experience Moment for yourself!</a> Login for the full experience.
 
-<img style = "width: 50%;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png">
-<img style = "width: 50%;" title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
-<img style = "width: 50%;" title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png">
-<img style = "width: 30%;" title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/Screen Shot - mobile.png">
+<img style = "width: 50%; display: inline-block;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png">
+<img style = "width: 50%; display: inline-block;"  title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
+<img style = "width: 50%; display: inline-block;"  title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png">
+<img style = "width: 30%; display: inline-block;"  title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/Screen Shot - mobile.png">
 
 ## Technologies Used
 - HTML/CSS
@@ -35,10 +35,10 @@ Future icebox features include:
 
 
 ## Known Bugs
-- Throws an err when loading a date plan that includes a deleted activity
+- None
 
 ## About Me
 
-As a full-stack software engineer (based in San Diego now!), I am a perennial learner energized by creativity and a good problem to solve. Embracing the process with a growth mindset, I’m passionate about creating clean and inclusive user-centric software that makes a difference in the world. I specialize in full-stack JS technologies (MERN stack, Django, etc.) to create complete end-to-end solutions. With a background in education, tech, and customer service, I have a strong foundation in critical thinking and communication among diverse stakeholders and team members which I leverage to produce optimal results for end users. Through selfless collaboration with authenticity and empathy, I am excited to work with a team that delivers software to improve lives.
+As a full-stack software engineer (based in San Diego now!), I am a perennial learner energized by creativity and a good problem to solve. Embracing the process with a growth mindset, I’m passionate about creating clean and inclusive user-centric software that makes a difference in the world. I specialize in full-stack JS technologies (MERN stack, Python/Django, etc.) to create complete end-to-end solutions. With a background in education, tech, and customer service, I have a strong foundation in critical thinking and communication among diverse stakeholders and team members which I leverage to produce optimal results for end users. Through selfless collaboration with authenticity and empathy, I am excited to work with a team that delivers software to improve lives.
 
-Please feel free to contact me at mason [dot] lancaster [at] protonmail [dot] com.
+Please feel free to contact me at masonlancaster [at] protonmail [dot] com.
