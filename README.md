@@ -6,10 +6,8 @@ With Moment, you can browse activities and restaurants in San Diego and add them
 
 <a href = "https://moment-sd.onrender.com/" target="_blank">Experience Moment for yourself!</a> Login for the full experience.
 
-<img style = "width: 40%; display: inline-block;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png">
-<img style = "width: 40%; display: inline-block;"  title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
-<img style = "width: 40%; display: inline-block;"  title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png">
-<img style = "width: 40%; display: inline-block;"  title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/Screen Shot - mobile.png">
+<img style = "width: 40%; display: inline-block;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png"><img style = "width: 40%; display: inline-block;"  title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
+<img style = "width: 40%; display: inline-block;"  title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png"><img style = "width: 40%; display: inline-block;"  title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/Screen Shot - mobile.png">
 
 ## Technologies Used
 - HTML/CSS
