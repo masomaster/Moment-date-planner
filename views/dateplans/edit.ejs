@@ -46,14 +46,13 @@
           <th rowspan="6" id="edit-date-act-list-col">
             <label>Add activities to date (you can leave entries blank):
           </th>
-          <div class="activities-list">
-            <td>
+            <td class="activities-list">
                 Activity #1:
                 <select name="activityId1">
                   <option></option>
                   <% activities.forEach(function(a) { %>
                     <option value="<%= a._id %>"
-                      <% if (datePlan.activities[0] && datePlan.activities[0].activity.title === a.title) { %>
+                      <% if (datePlan.activities[0]?.activity.title === a.title) { %>
                         <%= "selected" %>
                       <% } %>>
                     <%= a.title %>
@@ -64,7 +63,7 @@
                   <% }) %>
                 </select> 
             </td>
-            <td>
+            <td class="activities-list-time">
               Time: <input type="text" name="activityTime1"
               <% if (datePlan.activities[0]) { %>
                 value=<%= datePlan.activities[0].time %> %>>
@@ -72,13 +71,13 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="activities-list">
               Activity #2:
               <select name="activityId2">
                 <option></option>
                 <% activities.forEach(function(a) { %>
                   <option value="<%= a._id %>"
-                    <% if (datePlan.activities[1] && datePlan.activities[1].activity.title === a.title) { %>
+                    <% if (datePlan.activities[1]?.activity.title === a.title) { %>
                       <%= "selected" %>
                     <% } %>>
                   <%= a.title %>
@@ -89,7 +88,7 @@
                 <% }) %>
               </select> 
             </td>
-            <td>
+            <td class="activities-list-time">
             Time: <input type="text" name="activityTime2"
             <% if (datePlan.activities[1]) { %>
               value=<%= datePlan.activities[1].time %> %>>
@@ -97,13 +96,13 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="activities-list">
               Activity #3:
               <select name="activityId3">
                 <option></option>
                 <% activities.forEach(function(a) { %>
                   <option value="<%= a._id %>"
-                    <% if (datePlan.activities[2] && datePlan.activities[2].activity.title === a.title) { %>
+                    <% if (datePlan.activities[2]?.activity.title === a.title) { %>
                       <%= "selected" %>
                     <% } %>>
                   <%= a.title %>
@@ -114,7 +113,7 @@
                 <% }) %>
               </select> 
             </td>
-            <td>
+            <td class="activities-list-time">
               Time: <input type="text" name="activityTime3"
               <% if (datePlan.activities[2]) { %>
                 value=<%= datePlan.activities[2].time %> %>>
@@ -122,13 +121,13 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="activities-list">
               Activity #4:
               <select name="activityId4">
                 <option></option>
                 <% activities.forEach(function(a) { %>
                   <option value="<%= a._id %>"
-                    <% if (datePlan.activities[3] && datePlan.activities[3].activity.title === a.title) { %>
+                    <% if (datePlan.activities[3]?.activity.title === a.title) { %>
                       <%= "selected" %>
                     <% } %>>
                   <%= a.title %>
@@ -139,7 +138,7 @@
                 <% }) %>
               </select> 
             </td>
-            <td>
+            <td class="activities-list-time">
               Time: <input type="text" name="activityTime4"
               <% if (datePlan.activities[3]) { %>
                 value=<%= datePlan.activities[3].time %> %>>
@@ -147,13 +146,13 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="activities-list">
               Activity #5:
               <select name="activityId5">
                 <option></option>
                 <% activities.forEach(function(a) { %>
                   <option value="<%= a._id %>"
-                    <% if (datePlan.activities[4] && datePlan.activities[4].activity.title === a.title) { %>
+                    <% if (datePlan.activities[4]?.activity.title === a.title) { %>
                       <%= "selected" %>
                     <% } %>>
                   <%= a.title %>
@@ -164,7 +163,7 @@
                 <% }) %>
               </select> 
             </td>
-            <td>
+            <td class="activities-list-time">
               Time: <input type="text" name="activityTime5"
               <% if (datePlan.activities[4]) { %>
                 value=<%= datePlan.activities[4].time %> %>>
@@ -172,13 +171,13 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="activities-list">
               Activity #6:
               <select name="activityId6">
                 <option></option>
                 <% activities.forEach(function(a) { %>
                   <option value="<%= a._id %>"
-                    <% if (datePlan.activities[5] && datePlan.activities[5].activity.title === a.title) { %>
+                    <% if (datePlan.activities[5]?.activity.title === a.title) { %>
                       <%= "selected" %>
                     <% } %>>
                   <%= a.title %>
@@ -189,14 +188,13 @@
                 <% }) %>
               </select> 
             </td>
-            <td>
+            <td class="activities-list-time">
               Time: <input type="text" name="activityTime6" 
               <% if (datePlan.activities[5]) { %>
                 value=<%= datePlan.activities[5].time %> %>>
               <% } %>
             </td>
           </tr>
-        </div>
       </label>
       <tr>
         <th>

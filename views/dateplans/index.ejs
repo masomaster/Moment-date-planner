@@ -16,25 +16,26 @@
             </thead>
             <tbody>
                 <% dateplans.forEach(function(d) { %>
-                    <% if(d.public || (user && user._id.equals(d.user))) { %> 
+                    <% if(d.public || (user?._id.equals(d.user))) { %> 
                         <tr>
                             <td>
-                                <a href= "/dateplans/<%= d._id %>"><%= d.title %></a>
+                                <a href= "/dateplans/<%= d._id %>"><%= d?.title %></a>
                             </td>
                             <td>
                                 <% if (d.date) { %>
-                                    <%= d.date.toDateString() %>
+                                    <!-- could have optional chaining once I make it possible to have DNP w/o date -->
+                                    <%= d.date.toDateString() %> 
                                 <% } %>
                             </td>
                             <td>
                                 <% if (user) { %>
-                                    <%= d.people %>
+                                    <%= d?.people %>
                                 <% } %>
                             </td>
                             <td>
                                 <% let actStr = ""; %>
-                                <% d.activities.forEach(function(a) { %>
-                                    <% actStr += `${a.activity.title}  |  `; %>
+                                <% d?.activities.forEach(function(a) { %>
+                                    <% actStr += `${a.activity?.title}  |  `; %>
                                 <% }) %>
                                 <%= actStr %>
                             </td>

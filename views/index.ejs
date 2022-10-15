@@ -17,7 +17,7 @@
                         <div class="activity-block">
                             <a href= "/activities/<%= a._id %>"><%= a.title %></a>
                             <% if(a.location) { %>
-                                </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                </a> – 
                             <%= a.location %>
                         <% } %>
                         </div>
@@ -38,11 +38,11 @@
                 <h2><a href="/dateplans">Browse Date Plans</a></h2>
                 <% i = 0 %>
                 <% dateplans.forEach(function(d) { %> 
-                    <% if((d.public || (user && user._id.equals(d.user))) && i < 3) { %> 
+                    <% if((d.public || (user?._id.equals(d.user))) && i < 3) { %> 
                         <div class = "date-block">
                             <a href= "/dateplans/<%= d._id %>"><%= d.title %>
                             <% if(d.location) { %>
-                                </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                </a> – 
                                 <%= d.location %>
                             <% } %>
                         </div>

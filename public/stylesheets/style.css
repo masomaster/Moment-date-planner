@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0 0 76.5px;
-  font: 14px
+  font: 14px;
 }
 
 nav {
@@ -137,7 +137,7 @@ input[type=submit]:hover {
   justify-content: space-evenly;
   position: absolute;
   bottom: 20px;
-  width: 100%;
+  width: 100vw;
   height: 20%;
   min-height: 170px;
   align-items: center;
@@ -157,6 +157,7 @@ input[type=submit]:hover {
 .browse-page {
   display: grid;
   justify-content: center;
+  margin: 10px;
 }
 
 .browse-page button {
@@ -164,7 +165,6 @@ input[type=submit]:hover {
 }
 
 table {
-  justify-self: left;
   margin-top: 20px;
 }
 
@@ -201,13 +201,22 @@ textarea {
   height: 40px;
 }
 
-@media only screen and (max-width: 750px) {
+.show-page table {
+  max-width: 60vw;
+}
+
+@media only screen and (max-width: 650px) {
 
   .info-grids {
     flex-direction: column;
     height: 60%;
     min-height: 250px;
-    padding: 0 20px;
+    max-width: 95vw;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: baseline;
   }
 
   .splash {
@@ -218,7 +227,6 @@ textarea {
   nav {
     font-size: 10px;
     padding: 0 5px;
-    justify-content: space-between;
   }
 
   nav h1 {
@@ -235,13 +243,36 @@ textarea {
   }
 
   table {
-    width: 350px;
+    max-width: 95vw;
     justify-self: center;
-    margin: 0;
   }
 
   .browse-page {
-    justify-content: inherit;
+    justify-content: flex-start;
   }
 
+  .show-page table {
+    max-width: 95vw;
+    margin: 10px;
+  }
+
+  .browse-page td, th {
+    padding: 5px 10px;
+    vertical-align: top;
+  }
+
+  .date-plans table{
+    max-width: 95vw;
+  }
+
+  .activities-list, .activities-list-time {
+    display:inline-grid;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .activities-list-time {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 }

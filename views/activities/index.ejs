@@ -14,7 +14,7 @@
             </thead>
             <tbody>
                 <% activities.forEach(function(a) { %>
-                    <% if(a.public || (user && user._id.equals(a.user))) { %> 
+                    <% if(a.public || (user?._id.equals(a.user))) { %> 
                         <tr>
                             <td>
                                 <a href= "/activities/<%= a._id %>"><%= a.title %></a>

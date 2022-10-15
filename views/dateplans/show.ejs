@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<div class="content browse-page">
+<div class="content browse-page show-page">
     <% if(datePlan.public || (user && user._id.equals(datePlan.user))) { %>
         <h1><%= title %></h1>
         <table>
@@ -22,7 +22,7 @@
                 <th>Activities:</th>
                 <td>
                     <% datePlan.activities.forEach(function(a) { %>
-                        <%= a.time ? `${a.time}: ` : '' %><a href= "/activities/<%= a.activity._id %>"><%= a.activity.title %></a><br>
+                        <%= a.time ? `${a.time}: ` : '' %><a href= "/activities/<%= a.activity?._id %>"><%= a.activity?.title %></a><br>
                     <% }) %>
                 </td>
             </tr>
