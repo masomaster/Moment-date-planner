@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style2.css' />
+  <title>SD Date Night Planner</title>
+</head>
+<body>
+  <nav>
+    <div id="title">
+      <a href = "/"><h1>Moment</h1>
+      <h6>A San Diego Date Night Planner</h6></a>
+    </div>
+    <div id="links">
+      <a href="/activities">ACTIVITIES</a>
+      <a href="/dateplans">DATE PLANS</a>
+      <% if (user) { %>
+        <a href="/logout">LOG OUT</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <% } %>
+    </div>
+  </nav>
+  <main>
+    <div class="photo-grid">
+      <div 
+        class="card card-tall" 
+        style="background-image: url('https://images.unsplash.com/photo-1641948598832-81c0db0ead86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80')"
+      >
+        Bird Rock Coffee
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1661111471726-e5fe60818173?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80')"
+      >
+        RakiRaki
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1665344287455-d28131b732b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')"
+      >
+        Tasty Cookies
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')"
+      >
+        Del Mar Beach
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')"
+      >
+        Kettner Exchange
+      </div>
+      <div 
+        class="card card-wide" 
+        style="background-image: url('https://images.unsplash.com/photo-1514939775307-d44e7f10cabd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80')"
+      >
+        Harbor Walk
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1606131731446-5568d87113aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80')"
+      >
+        RomBomb
+      </div>
+      <div 
+        class="card card-tall" 
+        style="background-image: url('https://images.unsplash.com/photo-1476032285203-ef2df47a547c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')"
+      >
+        Torrey Pines
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80')"
+      >
+        URBN
+      </div>
+      <div 
+        class="card card-wide" 
+        style="background-image: url('https://images.unsplash.com/photo-1471922694854-ff1b63b20054?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2944&q=80')"
+      >
+        La Jolla
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1624300629298-e9de39c13be5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')"
+      >
+        El Patron
+      </div>
+      <div 
+        class="card" 
+        style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2162&q=80')"
+      >
+        Little Italy
+      </div>
+    </div>
+  </main>
+  <footer>
+    © 2022&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Moment Date Planner&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href = "https://github.com/masomaster/Moment-date-planner"><img src="/images/GitHub-Mark-32px.png"></a>
+  </footer>
+</body>
+</html>
