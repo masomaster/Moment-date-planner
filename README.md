@@ -19,7 +19,7 @@ With Moment, you can browse activities and restaurants in San Diego and add them
 
 ## Next Steps
 
-Future icebox features include:
+Future icebox features include (see also <a href = "https://trello.com/b/jHb4QlxB/moment-date-planner">Trello board</a>):
 - Share date plans or activities with other people
 - Automatically determine travel time between the locations of activities in a date plan (Google Maps API integration)
 - Search or filter existing activities to add to a date plan
