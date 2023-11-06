@@ -4,7 +4,7 @@ My wife and I have been on hundreds of dates over more than a decade in SD and a
 
 With Moment, you can browse activities and restaurants in San Diego and add them to customized date plans. Share public activities and date plans, or keep yours private. Leave notes on activities for future reference and update or delete past plans.
 
-<a href = "https://moment-sd.onrender.com/" target="_blank">Experience Moment for yourself!</a> Login for the full experience.
+<a href = "https://moment-sd.vercel.app/" target="_blank">Experience Moment for yourself!</a> Login for the full experience.
 
 <img style = "width: 50%; display: inline-block;" title="screenshot-home" alt ="screenshot-home" src="public/images/Screen Shot - home.png"><img style = "width: 50%; display: inline-block;"  title="screenshot-browse" alt ="screenshot-browse" src="public/images/Screen Shot - browse.png">
 <img style = "width: 60%; display: inline-block;"  title="screenshot-show" alt ="screenshot-show" src="public/images/Screen Shot - show.png"><img style = "width: 20%; display: inline-block;"  title="screenshot-mobile" alt ="screenshot-mobile" src="public/images/Screen Shot - mobile.png">
